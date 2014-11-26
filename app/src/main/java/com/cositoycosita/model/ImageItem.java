@@ -2,6 +2,7 @@ package com.cositoycosita.model;
 
 import android.graphics.Bitmap;
 
+
 public class ImageItem {
     private Bitmap image;
     private String title;

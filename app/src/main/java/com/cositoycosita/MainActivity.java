@@ -24,6 +24,7 @@ import com.cositoycosita.fragment.AlbumFragment;
 import com.cositoycosita.fragment.HomeFragment;
 import com.cositoycosita.fragment.MapFragment;
 import com.cositoycosita.fragment.WhatsappFragment;
+import com.parse.ParseObject;
 
 
 public class MainActivity extends ActionBarActivity
@@ -47,6 +48,7 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -197,4 +199,18 @@ public class MainActivity extends ActionBarActivity
         fragmentTransaction.commit();
     }
 
+    /**
+     * Handles adding all fragments to the view.
+     * @param newFragment The fragment to add.
+     * @param addToBackstack Whether this Fragment should appear in the backstack or not.
+     */
+    public void replaceFragment2(android.support.v4.app.Fragment newFragment, boolean addToBackstack) {
+        // use fragmentTransaction to replace the fragment
+        Log.i(TAG, "Initializing Fragment Transaction");
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        Log.i(TAG, "Replacing the fragment and calling backstack");
+        fragmentTransaction.replace(R.id.container, newFragment);
+        Log.i(TAG, "Commiting Transaction");
+        fragmentTransaction.commit();
+    }
 }
